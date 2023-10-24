@@ -54,9 +54,21 @@ namespace Practic_4
             }
             OutMatrix(height,width,matrix);
             _matrix = matrix;
+            int sum = 0;
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    sum += matrix[i, j];
+                }
+            }
+            Console.WriteLine($"Сумма всех чисел матрицы: {sum}");
         }
         public void UnionMatrix()
         {
+            if (_matrix == null)
+                CreateMatrix();
+
             if (_height == 0 || _width == 0)
             {
                 Console.Write("Введите длинну: ");
@@ -64,7 +76,7 @@ namespace Practic_4
                 Console.Write("Введите высоту: ");
                 _height = int.Parse(Console.ReadLine());
             }
-            int[,] secondMatrix = new int[_height,_width];
+            int[,] secondMatrix = new int[_height, _width];
             for (int i = 0; i < _height; i++)
             {
                 for (int j = 0; j < _width; j++)
@@ -74,7 +86,7 @@ namespace Practic_4
             }
             if (_matrix == null)
             {
-                _matrix = new int[_width,_height];
+                _matrix = new int[_width, _height];
                 for (int i = 0; i < _height; i++)
                 {
                     for (int j = 0; j < _width; j++)
@@ -84,7 +96,7 @@ namespace Practic_4
                 }
             }
             Console.WriteLine("Первая матрица:");
-            OutMatrix(_height,_width,_matrix);
+            OutMatrix(_height, _width, _matrix);
             Console.WriteLine("Вторая матрица:");
             OutMatrix(_height, _width, secondMatrix);
             Console.WriteLine("Сумма матриц:");
