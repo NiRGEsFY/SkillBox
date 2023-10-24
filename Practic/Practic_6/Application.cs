@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,19 +10,21 @@ namespace Practic_6
 {
     internal class Application
     {
-        
+        string _way;
         public void Initialization()
         {
             while (true)
             {
-                FileStream _stream;
+                FileStream stream;
                 Console.Clear();
                 Console.Write("Укажите путь к файлу: ");
                 string way = Console.ReadLine();
                 try
                 {
-                    _stream = new FileStream(way, FileMode.Open);
+                    stream = new FileStream(way, FileMode.Open);
                     Console.WriteLine("Файл успешно открыт!");
+                    _way = way;
+                    stream.Close();
                     break;
                 }
                 catch
@@ -31,8 +34,10 @@ namespace Practic_6
                     char answer = Console.ReadLine().First();
                     if (answer == 'Y' || answer == 'y')
                     {
-                        _stream = new FileStream(way, FileMode.Create);
+                        stream = new FileStream(way, FileMode.Create);
                         Console.WriteLine("Файл успешно создан!");
+                        _way = way;
+                        stream.Close();
                         break;
                     }
                 }
@@ -62,23 +67,63 @@ namespace Practic_6
                         Pause();
                         break;
                     case 2:
+                        WriteFile();
                         Pause();
                         break;
                 }
             }
-            _stream.Close();
         }
         private void Pause() 
         {
             Console.Write("Для продолжения нажмите на кнопку: ");
             Console.ReadKey();
+            Console.Clear();
         }
-        private void ReadFile() 
+        private async void ReadFile() 
         {
-            byte[] buffer = new byte[_stream.Length];
-            _stream.Read(buffer, 0, buffer.Length);
-            string output = Encoding.Default.GetString(buffer);
-            Console.WriteLine(output);
+            using (StreamReader stream = new StreamReader(_way))
+            {
+                Console.WriteLine($"{String.Format("{0,4}", "Id")} | " +
+                  $"{String.Format("{0,25}", "Edit time")} | " +
+                  $"{String.Format("{0,30}", "Name")} | " +
+                  $"{String.Format("{0,3}", "Age")} | " +
+                  $"{String.Format("{0,6}", "Height")} | " +
+                  $"{String.Format("{0,13}", "Date born")} | " +
+                  $"{String.Format("{0,20}", "Born plase")} | ");
+                string line;
+                while ((line = stream.ReadLine()) != null)
+                {
+                    string[] output = line.Split('#');
+                    Console.WriteLine($"{String.Format("{0,4}", output[0])} | " +
+                                      $"{String.Format("{0,25}", output[1])} | " +
+                                      $"{String.Format("{0,30}", output[2])} | " +
+                                      $"{String.Format("{0,3}", output[3])} | " +
+                                      $"{String.Format("{0,6}", output[4])} | " +
+                                      $"{String.Format("{0,13}", output[5])} | " +
+                                      $"{String.Format("{0,20}", output[6])} | ");
+                }
+            }
+        }
+        private void WriteFile()
+        {
+            using (StreamWriter stream = new StreamWriter(_way,true))
+            {
+                string output = String.Empty;
+                Console.Write("Введите Id: ");
+                output += $"{Console.ReadLine()}#";
+                output += $"{DateTime.Now}#";
+                Console.Write("Введите ФИО: ");
+                output += $"{Console.ReadLine()}#";
+                Console.Write("Введите возраст: ");
+                output += $"{Console.ReadLine()}#";
+                Console.Write("Введите рост: ");
+                output += $"{Console.ReadLine()}#";
+                Console.Write("Введите Дату рождения: ");
+                output += $"{Console.ReadLine()}#";
+                Console.Write("Место рождения: ");
+                output += $"{Console.ReadLine()}\n";
+                stream.Write(output);
+            }
         }
     }
 }

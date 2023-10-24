@@ -69,13 +69,6 @@ namespace Practic_4
             if (_matrix == null)
                 CreateMatrix();
 
-            if (_height == 0 || _width == 0)
-            {
-                Console.Write("Введите длинну: ");
-                _width = int.Parse(Console.ReadLine());
-                Console.Write("Введите высоту: ");
-                _height = int.Parse(Console.ReadLine());
-            }
             int[,] secondMatrix = new int[_height, _width];
             for (int i = 0; i < _height; i++)
             {
