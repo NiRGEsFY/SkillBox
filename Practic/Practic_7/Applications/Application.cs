@@ -2,17 +2,46 @@
 using Practic_7.Item;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practic_7.Application
+namespace Practic_7.Applications
 {
     public class Application
     {
         Repository repository;
-        public Application(string way) 
+        public Application() 
         {
+            string way;
+            while (true)
+            {
+                FileStream stream;
+                Console.Clear();
+                Console.Write("Укажите путь к файлу: ");
+                way = Console.ReadLine();
+                try
+                {
+                    stream = new FileStream(way, FileMode.Open);
+                    Console.WriteLine("Файл успешно открыт!");
+                    stream.Close();
+                    break;
+                }
+                catch
+                {
+                    Console.Write("Файл не найден, создать файл?" +
+                                  "Y/N: ");
+                    char answer = Console.ReadLine().First();
+                    if (answer == 'Y' || answer == 'y')
+                    {
+                        stream = new FileStream(way, FileMode.Create);
+                        Console.WriteLine("Файл успешно создан!");
+                        stream.Close();
+                        break;
+                    }
+                }
+            }
             repository = new Repository(way);
         }
         public void AddWorkerFromConsole()

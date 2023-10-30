@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting;
-using System.Text;
-using System.Threading.Tasks;
+using Practic_7.Applications;
 
 namespace Practic_7
 {
@@ -11,7 +7,7 @@ namespace Practic_7
     {
         static void Main(string[] args)
         {
-            var app = new Application.Application("test.txt");
+            var app = new Application();
             while (true)
             {
                 Console.WriteLine("Меню: \n" +

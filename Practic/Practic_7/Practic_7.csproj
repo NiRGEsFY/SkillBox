@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\Application.cs" />
-    <Compile Include="Application\Repository.cs" />
+    <Compile Include="Applications\Application.cs" />
+    <Compile Include="Applications\Repository.cs" />
     <Compile Include="Item\FullName.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,15 +1,9 @@
 ﻿using Practic_7.Item;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Practic_7.Application
+namespace Practic_7.Applications
 {
     public class Repository
     {
