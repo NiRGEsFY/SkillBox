@@ -28,6 +28,7 @@ namespace Practic_9
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var input = TextBoxLeftInput.Text.Split(' ');
+            LeftListBox.Items.Clear();
             foreach (var item in input)
             {
                 LeftListBox.Items.Add(item);

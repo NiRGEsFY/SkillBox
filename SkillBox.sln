@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practic_7", "Practic\Practi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practic_8", "Practic\Practic_8\Practic_8.csproj", "{796B0B0D-90A3-471B-B150-54E55CC9EF0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practic_9", "Practic_9\Practic_9.csproj", "{01E0B549-6EEB-4286-9C28-41A45BEC94C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practic_9", "Practic\Practic_9\Practic_9.csproj", "{01E0B549-6EEB-4286-9C28-41A45BEC94C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
