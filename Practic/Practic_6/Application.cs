@@ -79,7 +79,7 @@ namespace Practic_6
             Console.ReadKey();
             Console.Clear();
         }
-        private async void ReadFile() 
+        private void ReadFile() 
         {
             using (StreamReader stream = new StreamReader(_way))
             {
