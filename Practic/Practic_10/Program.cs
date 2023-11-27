@@ -20,8 +20,7 @@ namespace Practic_10
             {
                 Console.WriteLine("Меню: \n" +
                                   "1 - Задание 1,2,3\n" +
-                                  "2 - Задание видео\n" +
-                                  "3 - Изменить роль\n" +
+                                  "2 - Изменить роль\n" +
                                   "0 - Выйти и сохранить\n" +
                                   "Ввод: ");
                 int input = int.Parse(Console.ReadLine());
@@ -37,13 +36,6 @@ namespace Practic_10
                         }
                         break;
                     case 2:
-                        using (ApplicationBankA app = new ApplicationBankA(role))
-                        {
-                            app.MenuForConsole();
-                            Console.Clear();
-                        }
-                        break;
-                    case 3:
                         Console.WriteLine("Введите роль пользователя.\n\"Доступные роли: Manager, Consultant, Admin\"");
                         Console.Write("Ввод: ");
                         role.RoleName = Console.ReadLine();
