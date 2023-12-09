@@ -76,5 +76,10 @@ namespace Practic_10._2.Classes
             SecondName = user.SecondName;
             SubName = user.SubName;
         }
+
+        public override string ToString()
+        {
+            return String.Join(" ", FirstName, SecondName, PhoneNumber);
+        }
     }
 }

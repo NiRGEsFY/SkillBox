@@ -34,5 +34,10 @@ namespace Practic_10._2.Classes
         public string NameChanger { get; set; }
         public List<string> ChangedDate { get; set; }
         public string[] ChangedProperties { get; set; }
+
+        public override string ToString()
+        {
+            return String.Join(" ", FirstName,SecondName,PhoneNumber);
+        }
     }
 }

@@ -59,10 +59,12 @@ namespace Practic_10._2
                     halfClosedClients.Add(halfClosedClient);
                 }
                 clientOut.ItemsSource = halfClosedClients;
+                ClientEdit.ItemsSource = halfClosedClients;
             }
             else
             {
                 clientOut.ItemsSource = _clients;
+                ClientEdit.ItemsSource = _clients;
             }
         }
         private void LoadContext(object sender, RoutedEventArgs e)
@@ -96,5 +98,36 @@ namespace Practic_10._2
             clientOut.ItemsSource = null;
             _clients = null;
         }
+
+        private void RefreshContextChager(object sender, SelectionChangedEventArgs e)
+        {
+            if (EmploeePost.Text == "Consultant")
+            {
+                FirstNameTextBar.Visibility = Visibility.Hidden;
+                FirstNameTextBox.Visibility = Visibility.Hidden;
+                SecondNameTextBox.Visibility = Visibility.Hidden;
+                SecondNameTextBar.Visibility = Visibility.Hidden;
+                SubNameTextBar.Visibility = Visibility.Hidden;
+                SubNameTextBox.Visibility = Visibility.Hidden;
+                PassportNumberTextBar.Visibility = Visibility.Hidden;
+                PassportNumberTextBox.Visibility = Visibility.Hidden;
+                PassportSerriesTextBar.Visibility = Visibility.Hidden;
+                PassportSerriesTextBox.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                FirstNameTextBar.Visibility = Visibility.Visible;
+                FirstNameTextBox.Visibility = Visibility.Visible;
+                SecondNameTextBox.Visibility = Visibility.Visible;
+                SecondNameTextBar.Visibility = Visibility.Visible;
+                SubNameTextBar.Visibility = Visibility.Visible;
+                SubNameTextBox.Visibility = Visibility.Visible;
+                PassportNumberTextBar.Visibility = Visibility.Visible;
+                PassportNumberTextBox.Visibility = Visibility.Visible;
+                PassportSerriesTextBar.Visibility = Visibility.Visible;
+                PassportSerriesTextBox.Visibility = Visibility.Visible;
+            }
+        }
+
     }
 }

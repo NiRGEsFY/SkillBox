@@ -1,0 +1,24 @@
+﻿<Window x:Class="Practic11.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practic11"
+        mc:Ignorable="d"
+            Title="Выбор роли" SizeToContent="WidthAndHeight">
+    <Grid>
+        <TextBlock Margin="10,10,152,102">Выбор роли:</TextBlock>
+        <ComboBox Name="RoleList"  HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" Width="212">
+            <ComboBoxItem>
+                <TextBlock>Администратор</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock>Менеджер</TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock>Консультант</TextBlock>
+            </ComboBoxItem>
+        </ComboBox>
+        <Button Content="Войти" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+    </Grid>
+</Window>

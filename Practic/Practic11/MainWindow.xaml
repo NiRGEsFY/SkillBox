@@ -1,0 +1,226 @@
+﻿<Window x:Class="Practic11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practic11"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="Список">
+            <DataGrid Name="MainList">
+
+            </DataGrid>
+        </TabItem>
+        <TabItem Header="Изменение">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ListView Grid.Row="0" 
+                          Grid.RowSpan="14" 
+                          Grid.Column="1" 
+                          Grid.ColumnSpan="3" 
+                          x:Name="ChangeList"
+                          d:ItemsSource="{d:SampleData ItemCount=5}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Label Grid.Row="0" 
+                       Grid.Column="0" 
+                       FontSize="16">Параметры:</Label>
+                <Label Grid.Row="1" 
+                       Grid.Column="0"
+                       FontSize="16">Телефон:</Label>
+                <TextBox Grid.Row="2" 
+                         Grid.Column="0"
+                         FontSize="16"
+                         Name="ChangePhoneNumber"
+                         Text="{Binding ElementName=ChangeList, Path=SelectedItem.PhoneNumber}"></TextBox>
+                <Label Grid.Row="3" 
+                       Grid.Column="0"
+                       FontSize="16">Имя:</Label>
+                <TextBox Grid.Row="4" 
+                         Grid.Column="0"
+                         FontSize="16"
+                         Name="ChangeFirstName"
+                         Text="{Binding ElementName=ChangeList, Path=SelectedItem.FirstName}"></TextBox>
+                <Label Grid.Row="5" 
+                       Grid.Column="0"
+                       FontSize="16">Фамилия:</Label>
+                <TextBox Grid.Row="6" 
+                         Grid.Column="0"
+                         FontSize="16"
+                         Name="ChangeSecondName"
+                         Text="{Binding ElementName=ChangeList, Path=SelectedItem.SecondName}"></TextBox>
+                <Label Grid.Row="7" 
+                       Grid.Column="0"
+                       FontSize="16">Отчество:</Label>
+                <TextBox Grid.Row="8" 
+                         Grid.Column="0"
+                         FontSize="16"
+                         Name="ChangeSubName"
+                         Text="{Binding ElementName=ChangeList, Path=SelectedItem.SubName}"></TextBox>
+                <Label Grid.Row="9" 
+                       Grid.Column="0"
+                       FontSize="16">Номер паспорта:</Label>
+                <TextBox Grid.Row="10" 
+                         Grid.Column="0"
+                         FontSize="16"
+                         Name="ChangePassportNumber"
+                         Text="{Binding ElementName=ChangeList, Path=SelectedItem.PassportNumber}"></TextBox>
+                <Label Grid.Row="11" 
+                       Grid.Column="0"
+                       FontSize="16">Серия паспорта:</Label>
+                <TextBox Grid.Row="12" 
+                         Grid.Column="0"
+                         FontSize="16"
+                         Name="ChangePassportSerries"
+                         Text="{Binding ElementName=ChangeList, Path=SelectedItem.PassportSerries}"></TextBox>
+                <Button Grid.Column="0" Grid.Row="13" FontSize="18" Click="ChangeClient">Обновить</Button>
+            </Grid>
+
+        </TabItem>
+        <TabItem Header="Добавить"
+                 Name="AddTabBar">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label 
+                       Grid.Column="0" 
+                       Grid.ColumnSpan="2" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       FontSize="28">Добавление клиента</Label>
+                <TextBlock 
+                         Grid.Column="0"
+                         Grid.Row="1"
+                         VerticalAlignment="top" 
+                         HorizontalAlignment="Center"
+                         FontSize="20">Имя</TextBlock>
+                <TextBox Name="AddClientFirstName"
+                         Grid.Row="1" 
+                         Grid.Column="0"
+                         VerticalAlignment="Bottom"
+                         Height="30"
+                         Width="200"
+                         FontSize="20"></TextBox>
+                <TextBlock 
+                         Grid.Column="0"
+                         Grid.Row="2"
+                         VerticalAlignment="top" 
+                         HorizontalAlignment="Center"
+                         FontSize="20">Фамилия</TextBlock>
+                <TextBox Name="AddClientSecondName"
+                         Grid.Row="2" 
+                         Grid.Column="0"
+                         VerticalAlignment="Bottom"
+                         Height="30"
+                         Width="200"
+                         FontSize="20"></TextBox>
+                <TextBlock 
+                         Grid.Column="0"
+                         Grid.Row="3"
+                         VerticalAlignment="top" 
+                         HorizontalAlignment="Center"
+                         FontSize="20">Отчество</TextBlock>
+                <TextBox Name="AddClientSubName"
+                         Grid.Row="3" 
+                         Grid.Column="0"
+                         VerticalAlignment="Bottom"
+                         Height="30"
+                         Width="200"
+                         FontSize="20"></TextBox>
+                <TextBlock 
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         VerticalAlignment="top" 
+                         HorizontalAlignment="Center"
+                         FontSize="20">Телефон</TextBlock>
+                <TextBox Name="AddClientPhoneNumber"
+                         Grid.Row="1" 
+                         Grid.Column="1"
+                         VerticalAlignment="Bottom"
+                         Height="30"
+                         Width="200"
+                         FontSize="20"></TextBox>
+                <TextBlock 
+                         Grid.Column="2"
+                         Grid.Row="2"
+                         VerticalAlignment="top" 
+                         HorizontalAlignment="Center"
+                         FontSize="20">Серия паспорта</TextBlock>
+                <TextBox Name="AddClientSerriesPassport"
+                         Grid.Row="2" 
+                         Grid.Column="1"
+                         VerticalAlignment="Bottom"
+                         Height="30"
+                         Width="200"
+                         FontSize="20"></TextBox>
+                <TextBlock 
+                         Grid.Column="2"
+                         Grid.Row="3"
+                         VerticalAlignment="top" 
+                         HorizontalAlignment="Center"
+                         FontSize="20">Номер паспорта</TextBlock>
+                <TextBox Name="AddClientPassportNumber"
+                         Grid.Row="3" 
+                         Grid.Column="1"
+                         VerticalAlignment="Bottom"
+                         Height="30"
+                         Width="200"
+                         FontSize="20"></TextBox>
+                <Border
+                    Height="50"
+                    Width="150"
+                    Grid.Column="0" Grid.ColumnSpan="2"
+                    Grid.Row="5"
+                    CornerRadius="5">
+                    
+                    <Button
+                        FontSize="28"
+                        Background="Green" 
+                        Click="Button_AddNewClient"
+                        >Добавить</Button>
+                </Border>
+            </Grid>
+        </TabItem>
+        <TabItem Header="История">
+            <Grid>
+                <DataGrid Name="HistoryGrid"  Grid.Row="0" Grid.Column="0" AutoGenerateColumns="True"/>
+            </Grid>
+        </TabItem>
+
+    </TabControl>
+</Window>
