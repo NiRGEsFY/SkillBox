@@ -21,7 +21,7 @@ namespace Practic11.Classes
         }
         public ClientController() 
         {
-            _fileWay = "Clients";
+            _fileWay = "Clients.txt";
             clients = new List<ManagersClient>();
             LoadFile();
         }
@@ -32,9 +32,16 @@ namespace Practic11.Classes
         private void LoadFile()
         {
             var formatter = new XmlSerializer(typeof(List<ManagersClient>));
-            using (var stream = new FileStream(_fileWay, FileMode.OpenOrCreate))
+            try
             {
-                clients = formatter.Deserialize(stream) as List<ManagersClient>;
+                using (var stream = new FileStream(_fileWay, FileMode.OpenOrCreate))
+                {
+                    clients = formatter.Deserialize(stream) as List<ManagersClient>;
+                }
+            }
+            catch 
+            {
+                Console.WriteLine("Отсутствует изначальный файл");
             }
         }
         public void SaveFile()
