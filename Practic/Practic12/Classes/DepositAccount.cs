@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Practic12.Classes
 {
-    public class DepositAccount : IAccount
+    public class DepositAccount : Account, IAccount
     {
         public double Interest {  get; }
         public ulong Id { get; }
