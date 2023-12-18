@@ -8,23 +8,18 @@ using System.Threading.Tasks;
 
 namespace Practic12.Classes
 {
-    public class BankA :ITranslation<Account>, ITranslation<DepositAccount>
+    public class BankA
     {
         List<IAccount> accounts;
         public BankA()
         {
-            accounts = new List<IAccount>();
-            DepositAccount account = new DepositAccount();
-            Account deposit = account;
+            //Client client = new Client();
+            //client.DepositAccount = new DepositAccount();
+            //client.Account = new Account();
+            //client.Account = client.AddTransition(2.5);
+            //Console.WriteLine(client.Account.ToString());
         }
-        public Account Transition()
-        {
-            return new Account();
-        }
-        public DepositAccount Transition()
-        {
-            return new DepositAccount();
-        }
+
 
     }
 }

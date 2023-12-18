@@ -13,7 +13,7 @@ namespace Practic12
         ulong Id { get; }
         double Money {  get; }
         double Service { get; }
-        void Translation(double money, IAccount account);
         void Add(double money);
+        void Transition(double money);
     }
 }

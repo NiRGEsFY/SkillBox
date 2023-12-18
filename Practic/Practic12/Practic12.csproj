@@ -66,10 +66,11 @@
     <Compile Include="Classes\Account.cs" />
     <Compile Include="Classes\BankA.cs" />
     <Compile Include="Classes\Client.cs" />
+    <Compile Include="Classes\ClientController.cs" />
     <Compile Include="Classes\DepositAccount.cs" />
     <Compile Include="Interface\IAccount.cs" />
     <Compile Include="Interface\IClient.cs" />
-    <Compile Include="Interface\ITranslation.cs" />
+    <Compile Include="Interface\IAddTransition.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

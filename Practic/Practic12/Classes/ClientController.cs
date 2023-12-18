@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practic12.Interface
+namespace Practic12.Classes
 {
-    public interface ITranslation<out T>
+    public class ClientController
     {
-        T Transition();
     }
 }

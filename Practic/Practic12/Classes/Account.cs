@@ -9,21 +9,46 @@ namespace Practic12.Classes
 {
     public class Account : IAccount
     {
-        public ulong Id {  get; } 
-        public double Money { get; private set; }
-        public double Service { get; }
-        public void Translation(double money, IAccount account)
+        public Account() 
         {
-            if ((this.Money - money) < 0)
+            this.Id = 0;
+            this.Money = 0;
+            this.Service = 0;
+        }
+        public Account(ulong Id) 
+            : this()
+        {
+            this.Id = Id;
+        }
+        public Account(ulong id, double money) : this(id)
+        {
+            this.Money = money;
+        }
+        public Account(ulong id, double money, double service) : this(id, money)
+        {
+            this.Service = service;
+        }
+
+        public ulong Id { get; protected set; } 
+        public double Money { get; protected set; }
+        public static ulong MaxId { get; protected set; }
+        public double Service { get; protected set; }
+        public void Transition(double money)
+        {
+            if (money < 0)
                 return;
-            if (account == null)
-                return;
-            this.Money -= money;
-            account.Add(money);
+            Money -= money;
         }
         public void Add(double money)
         {
-            this.Money += money;
+            if (money < 0)
+                return;
+            Money += money;
         }
+        public override string ToString()
+        {
+            return $"Id: {Id}, Money: {Money}, Service: {Service}";
+        }
+
     }
 }
