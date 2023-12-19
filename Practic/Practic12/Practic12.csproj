@@ -71,6 +71,7 @@
     <Compile Include="Interface\IAccount.cs" />
     <Compile Include="Interface\IClient.cs" />
     <Compile Include="Interface\IAddTransition.cs" />
+    <Compile Include="Interface\ITransition.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

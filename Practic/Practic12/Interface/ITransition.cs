@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Practic12.Interface
 {
-    public interface IClient
+    public interface ITransition<in T>
+        where T : Account
     {
-        string Name {  get; }
-        string Password {  get; }
+        void Transition(T account, double money);
     }
 }

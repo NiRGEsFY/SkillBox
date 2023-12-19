@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Practic12.Classes;
+using Practic12.Interface;
 
 namespace Practic12
 {
@@ -26,8 +27,10 @@ namespace Practic12
             Client client = new Client();
             client.DepositAccount = new DepositAccount(2,9.9,9.9,9.9);
             client.Account = new Account(1,5.5,4.1);
-            client.Account = client.AddTransition(2.5);
+            client.Account = (Account)client.AddTransition(2.5);
+            client.Transition(client.DepositAccount, 3.5);
             Console.WriteLine(client.Account.ToString());
+
             InitializeComponent();
             TextBox1.Text = client.Account.ToString();
             TextBox2.Text = client.DepositAccount.ToString();
